@@ -3,6 +3,8 @@ airbnb_pricer_seattle
 
 Predict the best price to list your Airbnb based on thousands of listings in Seattle
 
+![seattle_airbnbs_over_time](reports/figures/seattle_airbnbs_over_time.gif "seattle_airbnbs_over_time")
+
 Project Organization
 ------------
 

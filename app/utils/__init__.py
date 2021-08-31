@@ -42,7 +42,6 @@ def distance(lat1, lon1, lat2, lon2):
 def subset(df, property_type, accommodates, bedrooms):
     filter = (df.property_type == property_type) & (df.accommodates == accommodates) & (df.bedrooms == bedrooms)
     if df[filter].shape[0] == 0:
-        print('IT IS 0')
         return None
     return df[filter]
 

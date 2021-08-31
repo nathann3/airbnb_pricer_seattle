@@ -90,6 +90,10 @@ def calculate():
                     "attr": (property_type, accommodates, bedrooms, median_rev)})
 
 def process_input(accommodates, bedrooms, beds, bathrooms, address, property_type):
+   """
+   Take raw inputs and put them into a DataFrame the model can take.
+   """
+
     # Get coordinates.
     locator = Nominatim(user_agent='myGeocoder')
     location = locator.geocode(address)

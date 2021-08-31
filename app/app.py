@@ -33,7 +33,7 @@ def hello_world():
 
 @app.route('/calculate_result')
 def calculate():
-    model = load('model.joblib')
+    model = load('models/model.joblib')
     accommodates = int(request.args.get('accommodates'))
     bedrooms = int(request.args.get('bedrooms'))
     beds = int(request.args.get('beds'))

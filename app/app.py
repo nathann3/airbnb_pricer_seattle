@@ -1,7 +1,8 @@
-from utils import clean_data, distance, subset, prep_df, place_listings
+from src.utils import clean_data, distance, subset, prep_df, place_listings
 
 import folium
 import numpy as np
+import os
 import pandas as pd
 
 from flask import Flask, render_template, request, jsonify
@@ -12,7 +13,8 @@ from joblib import load
 app = Flask(__name__)
 
 # Download and clean
-raw_listings = pd.read_csv('listings.csv.gz')
+fp = os.path.join('data', 'listings.pkl')
+raw_listings = pd.read_pickle(fp)
 drop_listings = clean_data(raw_listings)
 
 @app.route('/')

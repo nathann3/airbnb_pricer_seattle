@@ -14,7 +14,7 @@ from joblib import load
 app = Flask(__name__)
 
 # Load cleaned data set.
-fp = os.path.join('data', 'listings.pkl')
+fp = os.path.join('data', 'processed', 'yearly_revenue.pkl')
 listings = pd.read_pickle(fp)
 
 @app.route('/')
@@ -30,7 +30,8 @@ def hello_world():
 @app.route('/calculate_result')
 def calculate():
     # Predict yearly revenue based on input. Place listing on map and show similar listings too
-    model = load('models/model.joblib')
+    fp = os.path.join('models', 'model.joblib')
+    model = load(fp)
     accommodates = int(request.args.get('accommodates'))
     bedrooms = int(request.args.get('bedrooms'))
     beds = int(request.args.get('beds'))
@@ -75,7 +76,7 @@ def calculate():
         sub_preds = np.array(00000.00)
         sub = ''
     else:
-        sub_preds = model.predict(sub)
+        sub_preds = model.predict(sub.drop('yearly_revenue', axis=1))
         place_listings(sub, m, preds=sub_preds, radius=7)
 
     html_map = m._repr_html_()
@@ -98,12 +99,11 @@ def process_input(accommodates, bedrooms, beds, bathrooms, address, property_typ
     location = locator.geocode(address)
 
     # Create input DataFrame.
-    features = [[location.latitude, location.longitude, property_type,
-                 accommodates, bathrooms, bedrooms, beds]]
-    columns = ['latitude', 'longitude', 'property_type', 'accommodates',
-               'bathrooms_text', 'bedrooms', 'beds']
+    features = [[location.latitude, location.longitude,
+                 accommodates, bathrooms, bedrooms, beds, property_type]]
+    columns = ['latitude', 'longitude', 'accommodates', 'bathrooms_text', 'bedrooms',
+               'beds', 'property_type_cleansed']
     df = pd.DataFrame(features, columns=columns)
-
     return df
 
 

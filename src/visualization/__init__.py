@@ -28,7 +28,7 @@ def place_listings(df, m, preds=None, radius=5):
                          'Bedrooms: {}<br>'
                          'Beds: {}<br>'
                          'Bathrooms: {}<br>'
-                         'Estimated Yearly Revenue: ${:,.2f}').format(df.iloc[i]['property_type'],
+                         'Estimated Yearly Revenue: ${:,.2f}').format(df.iloc[i]['property_type_cleansed'],
                                                                 df.iloc[i]['accommodates'],
                                                                 int(df.iloc[i]['bedrooms']),
                                                                 int(df.iloc[i]['beds']),
@@ -51,7 +51,7 @@ def place_listings(df, m, preds=None, radius=5):
                          'Accommodates:  {}<br>'
                          'Bedrooms: {}<br>'
                          'Beds: {}<br>'
-                         'Bathrooms: {}').format(df.iloc[i]['property_type'],
+                         'Bathrooms: {}').format(df.iloc[i]['property_type_cleansed'],
                                                  df.iloc[i]['accommodates'],
                                                  int(df.iloc[i]['bedrooms']),
                                                  int(df.iloc[i]['beds']),

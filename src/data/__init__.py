@@ -33,7 +33,7 @@ def subset(df, property_type, accommodates, bedrooms):
     Filters listings DataFrame by property type, number of accommodations and
     bedrooms.
     """
-    filter = (df.property_type == property_type) & (df.accommodates == accommodates) & (df.bedrooms == bedrooms)
+    filter = (df.property_type_cleansed == property_type) & (df.accommodates == accommodates) & (df.bedrooms == bedrooms)
     if df[filter].shape[0] == 0:
         return None
     return df[filter]

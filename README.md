@@ -2,7 +2,7 @@ Airbnb Yearly Revenue Estimator
 ==============================
 web app : https://airbnb-revenue.herokuapp.com
 
-![seattle_airbnbs_over_time](reports/figures/seattle_airbnbs_over_time.gif "seattle_airbnbs_over_time")\
+![web_app_demo](reports/figures/web_app_demo.gif "web_app_demo")\
 Airbnb listings in Seattle from 2010 to 2021
 
 # Synopsis

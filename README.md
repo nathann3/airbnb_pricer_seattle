@@ -82,3 +82,51 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+
+# Airbnb Data
+
+Airbnb listings were retrieved from Inside Airbnb, an independent organization that provides tools and data to explore
+Airbnb's in cities around the world. In our project, we focus only on Seattle, WA. Scraped every month from October 2020
+to July 2021, the data provides information about listings as well as their calendar availability throughout the year.
+
+In total, 7166 listings were active within our dataset, but only a fraction of these listings were active every month.
+This can be attributed to COVID because people would have to retire their listings after the loss in demand for the
+travel industry. New hosts who wanted to test out the Airbnb platform also attribute to the varying number of
+continuously active Airbnbs.
+
+Most features in the data set are not required, because our mission is to create a tool for prospective Airbnb hosts to
+estimate a listing's yearly revenue. To do this, we removed features that inherently contain no information as well as
+features that are not readily available to the prospective host. The features leftover consist of accommodates,
+bedrooms, beds, bathrooms, latitude, longitude, and property type.
+
+We cleaned up property type by moving levels that only had a few listings to bigger and broader levels.
+
+There were a couple of missing data points, but most of them were resolved by finding the listing in Airbnb and filling
+in the missing values manually.
+
+
+# yearly_revenue Feature
+
+Airbnb does not release data on the yearly revenue their listings earn. This provides a challenge against estimating
+yearly revenue. To work around this, we must create our own response variable from the data available.
+The yearly_revenue feature was created by joining the availability calendars of the listings for every month. With every
+month joined, we update the availability calendar to estimate the days booked throughout the year. Along with
+availability, the calendar data set also provides the price for the day. Adding up all the days and their prices allows
+us to estimate a listing's yearly revenue. 
+
+This also provides a problem of really low revenue estimates. Since not all
+Airbnb listings are full-time, we remove listings that are not active every
+month.
+
+# Model Building
+
+# Model Performance
+
+![model_comparison](reports/figures/model_comparison.png "model_comparison")
+
+# Flask and Heroku Web App
+
+
+
+# Conclusion
+

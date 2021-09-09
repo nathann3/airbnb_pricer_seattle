@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+    <title>Seattle Airbnb Revenue Estimator</title>
+</head>
+<body>
+    <header id="showcase">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <div class="map">{{cmap|safe}}</div>
+
+        <div id="left">
+            <div id = white_box class="wrapper">
+                <h1>Estimate Your <br> Listing's Revenue</h1>
+                    <div class="form">
+                        Accommodates
+                        <br>
+                        <input type="number" id="accommodates" name="accommodates" required="" placeholder="1-16" min="1" max="16" step="1" maxlength="2">
+                        <br>
+
+                        Bedrooms
+                        <br>
+                        <input type="number" id="bedrooms" name="bedrooms" required="" placeholder="0-8" min="0" max="8" step="1" maxlength="1">
+                        <br>
+
+
+                        Beds
+                        <br>
+                        <input type="number" id="beds" name="beds" required=""placeholder="0-16" min="0" max="16" step="1" maxlength="2">
+                        <br>
+
+
+
+                        Bathrooms
+                        <br>
+                        <input type="number" id="bathrooms" name="bathrooms" required="" placeholder="0-6" min="0" max="6" step="0.5" maxlength="3">
+                        <br>
+
+
+
+                        Address
+                        <br>
+                        <input type="text" id="address" name="address" required="" value="400 Broad St, Seattle">
+                        <br>
+
+                        Property Type
+                        <br>
+                        <select id="property_type" name="property_type">
+                            <option value=”Entire_house">Entire house</option>
+                            <option value=”Entire_condominium”>Entire condominium</option>
+                            <option value=”Entire_apartment”>Entire apartment</option>
+                            <option value=”Entire_guest_house”>Entire guest house</option>
+                            <option value=”Private_room_in_house”>Private room in house</option>
+                            <option value=”Private_room_in_apartment”>Private room in apartment</option>
+                        </select>
+                        <br>
+
+                        <div class="ton">
+                            <button class="get_result">Calculate</button>
+                        </div>
+                    </div>
+
+                    <div class='result'>
+                        <p style="color:#c4c3d0">$00,000.00</p>
+                    </div>
+            </div>
+            <div class="bottom">
+
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+              $('.wrapper').on('click', '.get_result', function(){
+                 var accommodates = $("#accommodates").val();
+                 var bedrooms = $("#bedrooms").val();
+                 var beds = $("#beds").val();
+                 var bathrooms = $("#bathrooms").val();
+                 var address = $("#address").val();
+                 var property_type = $("#property_type").val();
+                 $.ajax({
+                     url: "/calculate_result",
+                     type: "get",
+                     data: {
+                         accommodates: accommodates,
+                         bedrooms: bedrooms,
+                         beds: beds,
+                         bathrooms: bathrooms,
+                         address: address,
+                         property_type: property_type
+                     },
+                  success: function(response) {
+                         $(".map").html(response.map);
+                         $(".result").html('<p>'+response.result.toString()+'</p>');
+                         $(".bottom").html(
+                             '<div class="attr">'
+                             + '<p>'+response.n_listings+' listings with</p>'
+                             + '<p>Property Type: '+response.attr[0]+'</p>'
+                             + '<p>Accommodates: '+response.attr[1]+'</p>'
+                             + '<p>Bedrooms: '+response.attr[2]+'</p>'
+                             + '<p>Median Estimated Yearly Revenue: '+response.attr[3]+'</p>'
+                             + '</div>'
+                         );
+                  },
+                 });
+              });
+            });
+         </script>
+
+    </header>
+</body>
+</html>

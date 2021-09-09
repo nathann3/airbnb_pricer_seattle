@@ -17,7 +17,7 @@ yearly revenue.
 
 The most expensive Airbnb's are located downtown. The most common Airbnb
 accommodates 2 and has 1 bed and bath. The median estimated yearly revenue is
-$26,171
+$26,171.
 
 With a voting regressor consisting of stacked regressors of XGBoost, KNN, and
 linear models, we were able to achieve an MAE of $11,512.01, an 8.4% increase
@@ -124,8 +124,11 @@ for this type of model This makes MAE more appropriate than RMSE. MAE is also
 much more interpretable and thus we will focus on MAE, but also provide other
 metrics as well in the final evaluation.
 
-
 ![model_comparison](reports/figures/model_comparison.png "model_comparison")
+
+With a voting regressor consisting of stacked regressors of XGBoost, KNN, and
+linear models, we were able to achieve an MAE of $11,512.01, an 8.4% increase
+in performance from a multiple linear regression model. 
 
 Due to our limited data from Oct 2020 to July 2021, small dataset, and limited
 features, our model does not perform as well as we hoped since $11k is a large

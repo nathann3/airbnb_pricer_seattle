@@ -2,8 +2,7 @@ Airbnb Yearly Revenue Estimator
 ==============================
 web app : https://airbnb-revenue.herokuapp.com
 
-![web_app_demo](reports/figures/web_app_demo.gif "web_app_demo")\
-Airbnb listings in Seattle from 2010 to 2021
+![web_app_demo](reports/figures/web_app_demo.gif "web_app_demo")
 
 # Synopsis
 Airbnb has grown exponentially since its inception in 2008 and has proved
@@ -27,14 +26,7 @@ in performance from a multiple linear regression model.
 ![model_comparison](reports/figures/model_comparison.png "model_comparison")
 
 A model is only as good as the data it is trained on.\
-Due to our limited data from Oct 2020 to July 2021, small dataset, and limited
-features, our model does not perform as well as we hoped since $11k is a large
-MAE compared to the median estimated yearly income. Model per performance can
-definitely be improved by collecting data throughout the year and continuously
-updating the model. The model's feature set is not sufficient and needs to be
-supplemented with amenities and even pictures to give more information about
-the quality of the listing. But as always, we risk overfitting by adding too
-many features.
+We discuss ways to improve performance in Model Performance below.
 
 Project Organization
 ------------
@@ -42,6 +34,7 @@ Project Organization
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
+    ├── app                <- Flask app with HTML/CSS
     ├── data
     │   └── processed      <- The final, canonical data sets for modeling.
     │
@@ -122,10 +115,28 @@ month.
 
 # Model Performance
 
+For our evaluations, we will focus on the mean absolute error (MAE) because it
+is not highly sensitive to outliers like root mean squared error (RMSE) is. 
+Like housing prices, yearly revenue for listings can have many outliers, where
+for our model we want to create a tool that allows prospective hosts to
+estimate what their yearly revenue will be. Outliers aren’t particularly bad in
+for this type of model This makes MAE more appropriate than RMSE. MAE is also
+much more interpretable and thus we will focus on MAE, but also provide other
+metrics as well in the final evaluation.
+
+
 ![model_comparison](reports/figures/model_comparison.png "model_comparison")
 
-# Flask and Heroku Web App
+Due to our limited data from Oct 2020 to July 2021, small dataset, and limited
+features, our model does not perform as well as we hoped since $11k is a large
+MAE compared to the median estimated yearly income. Model per performance can
+definitely be improved by collecting data throughout the year and continuously
+updating the model. The model's feature set is not sufficient and needs to be
+supplemented with amenities and even pictures to give more information about
+the quality of the listing. But as always, we risk overfitting by adding too
+many features.
 
+# Flask and Heroku Web App
 
 
 # Conclusion

@@ -109,6 +109,9 @@ This can be attributed to COVID because people would have to retire their listin
 travel industry. New hosts who wanted to test out the Airbnb platform also attribute to the varying number of
 continuously active Airbnbs.
 
+![seattle_airbnbs_over_time](reports/figures/seattle_airbnbs_over_time.gif "seattle_airbnbs_over_time")
+<p><small>Airbnb listings in Seattle from 2010 to 2021</small></p>
+
 Most features in the data set are not required, because our mission is to create a tool for prospective Airbnb hosts to
 estimate a listing's yearly revenue. To do this, we removed features that inherently contain no information as well as
 features that are not readily available to the prospective host. The features leftover consist of accommodates,
@@ -134,6 +137,37 @@ Airbnb listings are full-time, we remove listings that are not active every
 month.
 
 # Model Building
+
+Before anything, we split the data 80-20 into training and test sets.
+We will then model and tune all our models on the training set, including
+cross-validation on only the training set. In the end, we will evaluate the
+best models on the never-before-seen test set.
+
+For preliminary modeling we used :
+
+* linear regression
+* ridge regression
+* lasso regression
+* elastic net
+* k nearest neighbors (KNN)
+* random forests
+* XGBoost
+* stack ensemble (consisting of all previous models)
+
+Out of these models, the stacked ensemble performed the best with a mean
+cross-validation MAE of 11329.90, followed by random forests with an MAE of
+11454.30.
+
+After preliminary modeling, we tuned all the previous models using a grid
+search. Out of these models, the tuned stack ensemble performed the best with a
+mean cross-validation of 11133.31. Random forests performed second best
+followed by KNN with MAEs of 11288.79 and 11312.56 respectively.
+
+We then put those three best models into a voting regressor, which achieved a
+mean cross-validation MAE of 11074.38, the best performing model so far.
+
+With these three best models, we then fit them on the entire training set and
+evaluated their performance on the never before test set.
 
 # Model Performance
 
@@ -162,6 +196,7 @@ the quality of the listing. But as always, we risk overfitting by adding too
 many features.
 
 # Flask and Heroku Web App
+
 
 
 # Conclusion

@@ -76,6 +76,28 @@ Project Organization
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 
+# Purpose / The Airbnb Business
+
+Airbnb has become a thriving business for many entrepreneurs and investors, but
+with its exponential growth, the Airbnb market has become competitive. Like the
+housing and rental market, prospective Airbnb hosts must make significant
+decisions on their listing, whether they already have a place or looking to
+buy/rent a place, to maximize their potential earnings. A poor listing will not
+yield a good return and thus the investment money will have been wasted.
+
+To maximize their potential earnings, a host's decisions must be data-driven.
+Airbnb Yearly Revenue Estimator was created to help hosts find potential
+candidate homes/apartments for Airbnb. Using data from thousands of listings,
+the web app estimates the yearly revenue a listing could generate, given the
+main attributes of a listing (property type, location, beds, etc...). The web
+app also features an interactive map with other similar listings with their
+attributes and estimated yearly revenue plotted.
+
+The goal is to allow potential hosts to be able to make informed data-driven
+decisions before committing to buy/rent a place for Airbnb. This project is
+focused on the Seattle area but can be modified to be used in any other major
+city.
+
 # Airbnb Data
 
 Airbnb listings were retrieved from Inside Airbnb, an independent organization that provides tools and data to explore

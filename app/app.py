@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 # Load cleaned data set.
 fp = os.path.join('data', 'processed', 'yearly_revenue.pkl')
+print(fp)
 listings = pd.read_pickle(fp)
 
 @app.route('/')

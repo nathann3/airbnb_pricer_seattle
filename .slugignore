@@ -1,0 +1,12 @@
+/notebooks
+/reports
+/LICENSE
+/.gitignore
+/pyproject.toml
+/README.md
+/references
+/setup.py
+/test_environment.py
+/tox.ini
+/Makefile
+/docs

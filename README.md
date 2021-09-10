@@ -122,7 +122,7 @@ features that are not readily available to the prospective host. The features le
 bedrooms, beds, bathrooms, latitude, longitude, and property type.
 
 <div align='center'>
-    <img src="reports/figures/correlation.png">
+    <img src='reports/figures/correlation.png', width="500">
     <p><small>Correlation of features in our processed data</small></p>
 </div>
 

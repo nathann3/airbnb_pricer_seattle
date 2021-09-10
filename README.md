@@ -1,5 +1,9 @@
 Airbnb Yearly Revenue Estimator
 ==============================
+
+
+[![Build](https://github.com/nathann3/airbnb_revenue_estimator/actions/workflows/python-app.yml/badge.svg)](https://github.com/nathann3/airbnb_revenue_estimator/actions/workflows/python-app.yml)
+
 web app : https://airbnb-revenue.herokuapp.com
 
 ![web_app_demo](reports/figures/web_app_demo.gif "web_app_demo")

@@ -121,6 +121,11 @@ estimate a listing's yearly revenue. To do this, we removed features that inhere
 features that are not readily available to the prospective host. The features leftover consist of accommodates,
 bedrooms, beds, bathrooms, latitude, longitude, and property type.
 
+<div align='center'>
+    <img src='reports/figures/correlation.png', width="420">
+    <p><small>Correlation of features in our processed data</small></p>
+</div>
+
 We cleaned up property type by moving levels that only had a few listings to bigger and broader levels.
 
 There were a couple of missing data points, but most of them were resolved by finding the listing in Airbnb and filling

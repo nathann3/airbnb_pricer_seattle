@@ -131,6 +131,17 @@ We cleaned up property type by moving levels that only had a few listings to big
 There were a couple of missing data points, but most of them were resolved by finding the listing in Airbnb and filling
 in the missing values manually.
 
+### Interesting Findings
+
+* Listings are most expensive in June on 
+  Friday and Saturday, while they are least expensive in January on Mondays and 
+  Tuesdays. The most expensive listings are downtown.
+* The most common listing is a 1-bedroom apartment.
+* Reviews for listings are overwhelming positive. Something is off if there is a negative review
+* The most common minimum number of nights to book is surprisingly 30, with 2 and then 1 following.
+  This might signal a rise in short term rentals and sublets, which is inline with what Airbnb has been trying to push.
+
+
 # yearly_revenue Feature
 
 Airbnb does not release data on the yearly revenue their listings earn. This provides a challenge against estimating

@@ -1,5 +1,4 @@
 from unittest import TestCase
-from tempfile import TemporaryDirectory
 from src import data, features
 from app import app
 

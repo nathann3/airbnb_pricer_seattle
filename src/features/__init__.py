@@ -20,12 +20,6 @@ def clean_data(df, fill=False):
     Cleans listing data. Getting rid of many features that are unnecessary for
     predicting yearly revenue.
     """
-    drop_cols = ['listing_url', 'scrape_id', 'last_scraped',
-                       'picture_url', 'host_thumbnail_url',
-                       'calendar_last_scraped', 'has_availability',
-                 'neighbourhood', 'bathrooms', 'calendar_updated']
-    if set(drop_cols).intersection(df.columns):
-        dropped = df.drop(drop_cols, axis=1).copy()
 
     dropped = df.copy()
     dropped['price'] = dropped['price'].replace('[\$,]', '', regex=True).astype(float)
